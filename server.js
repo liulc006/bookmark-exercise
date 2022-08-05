@@ -1,5 +1,4 @@
 const pg = require('pg');
-const { nextTick } = require('process');
 const Sequelize = require ('sequelize');
 
 const client = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/bookmarker', {logging: false});
@@ -29,7 +28,7 @@ async function setup() {
                                         Bookmark.create({name: 'LinkedIn', url: 'https://www.linkedin.com/', categoryId: jobs.id }),
                                         Bookmark.create({name: 'Indeed', url: 'https://www.indeed.com/', categoryId: jobs.id }),
                                         Bookmark.create({name: 'MDN', url: 'https://developer.mozilla.org/en-US/', categoryId: code.id })
-    ]);
+        ]);
 
         console.log();
         //res = await client.query(`SELECT * FROM bookmarks`)
